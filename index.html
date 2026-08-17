@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SWAP: Larry's name for yours -->
+  <title>Lucin Arezouyan ~ portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <!-- SWAP: your name, your words -->
+  <h1>Lucin Arezouyan</h1>
+  <p>Comm Major ~ Santa Barbara</p>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       This is Larry's portfolio. Your job: make it YOURS.
+       1. Put your media files in the media/ folder,
+          named projectname_NN.ext ~ lowercase, no spaces.
+       2. Swap Larry's filenames, titles, meta, and text for yours,
+          one project at a time. Check the browser after each swap.
+       3. Copy a whole <section> block to add more projects.
+          Delete Larry's leftovers when you are done.
+       ============================================================ -->
+
+  <section class="project" onclick="openProject(this)">
+    <h2>2046 Alternate Future</h2>
+    <p class="meta">AI Generation | 2026 | independent | Lucin Arezouyan</p>
+    <figure>
+      <img src="media/2046.png" alt="glitched television screen in saturated sunset colors">
+      <figcaption> A speculative future environment .</figcaption>
+    </figure>
+    <p>
+      2046 an Alternative Future explores a design affected by dwindling resources and the repurposing of technology. AI 
+      generation was used to combine multiple environmental and cultural images, exploring different textures and 
+      structures to create a new environment.
+    </p>
+  </section>
+
+  <section class="project" onclick="openProject(this)">
+    <h2>Who Am I?</h2>
+    <p class="meta">AI Generation | 2024 | independent | Lucin Arezouyan</p>
+    <figure>
+      <img src="media/Identity.png" alt="hundreds of through-hole resistors in a translucent tray">
+      <figcaption> A potential movie poster idea exploring images, memroies and personal experiences 
+        affect on perception.</figcaption>
+    </figure>
+    <p>
+     Who Am I? follows the main character, Maya, through a world where everyone sees her differently based on their 
+     relationship with her and their perception of one another. As these different perceptions begin to affect her, Maya 
+     spirals down a path that leads her to question who she really is.
+    </p>
+  </section>
+
+  <section class="project" onclick="openProject(this)">
+    <h2>Elevator/Hold Music</h2>
+    <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
+    <figure>
+      <audio src="media/music.wav" controls></audio>
+      <figcaption> A musical piece inspired by hold/elevator music.</figcaption>
+    </figure>
+    <p>
+      A repetitive beat made to emulate the calm feeling of elevator and hold music. Devoid of lyrics, the piece focuses 
+      on creating a simple and relaxing beat that listeners can enjoy. 
+    </p>
+  </section>
+
+  <!-- ADD YOUR NEXT PROJECT HERE: copy a whole <section> ... </section> block -->
+
+</main>
+
+<footer>
+  <!-- SWAP: your name and email -->
+  <p>Lucin Arezouyan ~ lucinarezouyan@ucsb.edu ~ 2026</p>
+</footer>
+
+<script>
+function openProject(project) {
+  project.classList.toggle("expanded");
+}
+</script>
+
+</body>
+</html>
