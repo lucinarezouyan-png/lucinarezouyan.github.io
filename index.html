@@ -62,7 +62,7 @@
     <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
     <figure>
-      <audio src="music.wav" controls onclick="event.stopPropagation(); openProject(this.closest('.project'))"></audio>
+      <audio src="music.wav" controls onclick="event.stopPropagation(); openMusic(event, this)"></audio>
       <figcaption> A musical piece inspired by hold/elevator music.</figcaption>
     </figure>
     <p>
@@ -84,7 +84,61 @@
 function openProject(project) {
     project.classList.toggle("expanded");
 }
+function openMusic(event, audio) {
+    event.stopPropagation();
 
+    const figure = audio.closest("figure");
+    const caption = figure.querySelector("figcaption");
+    const project = audio.closest(".project");
+    const description = project.querySelector("p:not(.meta)");
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.background = "rgba(0, 0, 0, 0.92)";
+    overlay.style.zIndex = "9999";
+    overlay.style.display = "flex";
+    overlay.style.flexDirection = "column";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.padding = "30px";
+    overlay.style.boxSizing = "border-box";
+
+    const bigAudio = audio.cloneNode(true);
+    bigAudio.style.width = "80%";
+    bigAudio.style.maxWidth = "800px";
+    bigAudio.onclick = function(event) {
+        event.stopPropagation();
+    };
+    overlay.appendChild(bigAudio);
+
+    if (caption) {
+        const text = document.createElement("p");
+        text.textContent = caption.textContent;
+        text.style.color = "white";
+        text.style.marginTop = "15px";
+        overlay.appendChild(text);
+    }
+
+    if (description) {
+        const fullDescription = document.createElement("p");
+        fullDescription.textContent = description.textContent;
+        fullDescription.style.color = "white";
+        fullDescription.style.maxWidth = "800px";
+        fullDescription.style.textAlign = "center";
+        fullDescription.style.marginTop = "10px";
+        overlay.appendChild(fullDescription);
+    }
+
+    overlay.onclick = function() {
+        overlay.remove();
+    };
+
+    document.body.appendChild(overlay);
+}
 function openImage(event, image) {
     event.stopPropagation();
 
