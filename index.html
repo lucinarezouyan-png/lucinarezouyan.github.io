@@ -58,13 +58,11 @@
     </p>
   </section>
 
-  <section class="project" onclick="openProject(this)">
+  <audio src="music.wav" controls onclick="event.stopPropagation(); openMusic(event, this)"></audio>
     <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
    <figure>
-    <div class="audio-click" onclick="openMusic(event, this.querySelector('audio'))">
-        <audio src="music.wav" controls></audio>
-    </div>
+    <audio src="music.wav" controls onclick="event.stopPropagation(); openMusic(event, this)"></audio>
     <figcaption>A musical piece inspired by hold/elevator music.</figcaption>
 </figure>
     <p>
