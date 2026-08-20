@@ -58,13 +58,15 @@
     </p>
   </section>
 
-  <section class="project" onclick="openMusic(event, this.querySelector('audio'))">
+  <section class="project" onclick="openProject(this)">
     <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
-    <figure>
-      <audio src="music.wav" controls onmousedown="event.stopPropagation(); openMusic(event, this)"></audio>
-      <figcaption> A musical piece inspired by hold/elevator music.</figcaption>
-    </figure>
+   <figure>
+    <div class="audio-click" onclick="openMusic(event, this.querySelector('audio'))">
+        <audio src="music.wav" controls></audio>
+    </div>
+    <figcaption>A musical piece inspired by hold/elevator music.</figcaption>
+</figure>
     <p>
       A repetitive beat made to emulate the calm feeling of elevator and hold music. Devoid of lyrics, the piece focuses 
       on creating a simple and relaxing beat that listeners can enjoy. 
