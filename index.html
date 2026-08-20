@@ -90,6 +90,9 @@ function openImage(event, image) {
 
     const figure = image.closest("figure");
     const caption = figure.querySelector("figcaption");
+  
+  const project = image.closest(".project");
+const description = project.querySelector("p:not(.meta)");
 
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
@@ -124,7 +127,15 @@ function openImage(event, image) {
         text.style.marginTop = "15px";
         overlay.appendChild(text);
     }
-
+if (description) {
+    const fullDescription = document.createElement("p");
+    fullDescription.textContent = description.textContent;
+    fullDescription.style.color = "white";
+    fullDescription.style.maxWidth = "800px";
+    fullDescription.style.textAlign = "center";
+    fullDescription.style.marginTop = "10px";
+    overlay.appendChild(fullDescription);
+}
     overlay.onclick = function () {
         overlay.remove();
     };
