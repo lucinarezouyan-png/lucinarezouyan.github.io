@@ -62,7 +62,7 @@
     <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
     <figure>
-      <audio src="music.wav" controls></audio>
+      <audio src="music.wav" controls onclick="event.stopPropagation(); openProject(this.closest('.project'))"></audio>
       <figcaption> A musical piece inspired by hold/elevator music.</figcaption>
     </figure>
     <p>
