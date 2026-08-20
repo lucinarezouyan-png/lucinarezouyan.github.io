@@ -47,7 +47,7 @@
     <h2>Who Am I?</h2>
     <p class="meta">AI Generation | 2024 | independent | Lucin Arezouyan</p>
     <figure>
-      <img src="Identity.png" alt="hundreds of through-hole resistors in a translucent tray">
+      <img src="Identity.png" alt="movie poster exploring identity and different perceptions of the main character">
       <figcaption> A potential movie poster idea exploring images, memories and personal experiences 
         affect on perception.</figcaption>
     </figure>
@@ -87,7 +87,49 @@ function openProject(project) {
 
 function openImage(event, image) {
     event.stopPropagation();
-  image.classList.toggle("fullscreen");
+
+    const figure = image.closest("figure");
+    const caption = figure.querySelector("figcaption");
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.background = "rgba(0, 0, 0, 0.92)";
+    overlay.style.zIndex = "9999";
+    overlay.style.display = "flex";
+    overlay.style.flexDirection = "column";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.padding = "30px";
+    overlay.style.boxSizing = "border-box";
+    overlay.style.cursor = "pointer";
+
+    const bigImage = image.cloneNode();
+    bigImage.removeAttribute("onclick");
+    bigImage.style.width = "auto";
+    bigImage.style.height = "auto";
+    bigImage.style.maxWidth = "90vw";
+    bigImage.style.maxHeight = "80vh";
+    bigImage.style.objectFit = "contain";
+
+    overlay.appendChild(bigImage);
+
+    if (caption) {
+        const text = document.createElement("p");
+        text.textContent = caption.textContent;
+        text.style.color = "white";
+        text.style.marginTop = "15px";
+        overlay.appendChild(text);
+    }
+
+    overlay.onclick = function () {
+        overlay.remove();
+    };
+
+    document.body.appendChild(overlay);
 }
 </script>
   
