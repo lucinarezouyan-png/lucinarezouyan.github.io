@@ -18,9 +18,24 @@ background-size:
   390px 390px,
   470px 470px;
 
-  max-width: 42rem;          /* the centered readable column */
-  margin: 0 auto;
-  padding: 1.5rem;
+body {
+    font-family: "Lato", Arial, sans-serif;
+    line-height: 1.5;
+    color: #1a1a1a;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.9) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 75% 30%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,.6) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 25% 85%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+    #05070d;
+    background-size:
+        170px 170px,
+        230px 230px,
+        310px 310px,
+        390px 390px,
+        470px 470px;
 }
 
 header { margin: 2rem 0 3rem; 
