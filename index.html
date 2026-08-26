@@ -182,6 +182,51 @@ if (description) {
     document.body.appendChild(overlay);
 }
 </script>
+  <script>
+function createTwinkleStars() {
+  const numberOfStars = 25;
+
+  for (let i = 0; i < numberOfStars; i++) {
+    const star = document.createElement("div");
+    star.className = "twinkle-star";
+
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+
+    document.body.appendChild(star);
+  }
+}
+
+function randomTwinkle() {
+  const stars = document.querySelectorAll(".twinkle-star");
+
+  // Randomly choose whether 1 or 2 stars twinkle
+  const amount = Math.random() < 0.65 ? 1 : 2;
+
+  for (let i = 0; i < amount; i++) {
+    const star = stars[Math.floor(Math.random() * stars.length)];
+
+    star.classList.remove("active");
+
+    // Restart the animation
+    void star.offsetWidth;
+
+    star.classList.add("active");
+
+    setTimeout(() => {
+      star.classList.remove("active");
+    }, 1400);
+  }
+
+  // Wait a random amount of time before the next twinkle
+  const nextTwinkle = 700 + Math.random() * 2200;
+  setTimeout(randomTwinkle, nextTwinkle);
+}
+
+createTwinkleStars();
+
+setTimeout(randomTwinkle, 800);
+</script>
   
 </body>
 </html>
