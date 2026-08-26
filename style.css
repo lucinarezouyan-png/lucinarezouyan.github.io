@@ -158,16 +158,17 @@ figure:has(audio) {
   }
 /* Side navigation buttons */
 .side-nav {
-    position: fixed;
-    left: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
+    position: fixed !important;
+    left: 35px !important;
+    top: 50vh !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
     gap: 28px;
-    z-index: 100;
+    z-index: 1000;
+    width: auto;
 }
-
 .side-nav button {
     appearance: none;
     -webkit-appearance: none;
@@ -182,7 +183,7 @@ figure:has(audio) {
 
     color: white !important;
     font-family: "Lato", Arial, sans-serif;
-    font-size: 1.6rem !important;
+    font-size: 1.8rem !important;
     font-weight: 400;
     letter-spacing: 3px;
 
