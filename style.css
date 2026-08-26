@@ -1,18 +1,22 @@
-/* MAT 189 starter stylesheet.
-   You do NOT need to touch this file today.
-   Later in this class you will change everything here ~ on purpose,
-   with reasons. Today: edit index.html only. */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lobster&display=swap');
 body {
   font-family: "Lato", Arial, sans-serif;
   line-height: 1.5;
   color: #1a1a1a;
-  background: linear-gradient(
-    to bottom, 
-    #dce6f2 0%,
-    #aab9cd 45%,
-    #65758e 72%,
-    #202a3a 100%
+ background:
+  radial-gradient(circle at 15% 20%, rgba(255,255,255,.9) 0 1px, transparent 1.5px),
+  radial-gradient(circle at 75% 30%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+  radial-gradient(circle at 40% 70%, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
+  radial-gradient(circle at 90% 80%, rgba(255,255,255,.6) 0 1px, transparent 1.5px),
+  radial-gradient(circle at 25% 85%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+  #05070d;
+
+background-size:
+  170px 170px,
+  230px 230px,
+  310px 310px,
+  390px 390px,
+  470px 470px;
 
   );
   max-width: 42rem;          /* the centered readable column */
