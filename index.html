@@ -15,8 +15,8 @@
   <p>COMMUNICATION • DIGITAL MEDIA </p>
 </header>
 <nav class="side-nav">
-  <a href="#about">ABOUT ME</a>
-  <a href="#projects">PROJECTS</a>
+    <button onclick="showSection('about')">ABOUT ME</button>
+    <button onclick="showSection('projects')">PROJECTS</button>
 </nav>
 
 <section id="about" class="about-section">
@@ -239,6 +239,20 @@ function randomTwinkle() {
 createTwinkleStars();
 
 setTimeout(randomTwinkle, 800);
+    function showSection(section) {
+    const about = document.getElementById("about");
+    const projects = document.getElementById("projects");
+
+    if (section === "about") {
+        about.style.display = "block";
+        projects.style.display = "none";
+    } else {
+        about.style.display = "none";
+        projects.style.display = "grid";
+    }
+}
+
+showSection("about");
 </script>
   
 </body>
