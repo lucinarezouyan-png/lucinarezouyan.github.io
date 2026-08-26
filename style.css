@@ -125,3 +125,42 @@ audio {
 figure:has(audio) {
   margin: 1rem 0;
 }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 12% 18%, white 0 1.2px, transparent 2px),
+    radial-gradient(circle at 28% 42%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 63% 22%, white 0 1.3px, transparent 2px),
+    radial-gradient(circle at 78% 58%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 31%, white 0 1.2px, transparent 2px);
+
+  animation: twinkleSlow 5s ease-in-out infinite alternate;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 18% 72%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 44% 14%, white 0 1.3px, transparent 2px),
+    radial-gradient(circle at 69% 81%, white 0 1.1px, transparent 2px),
+    radial-gradient(circle at 86% 46%, white 0 1.4px, transparent 2px);
+
+  animation: twinkleFast 3.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes twinkleSlow {
+  from { opacity: 0.2; }
+  to   { opacity: 0.9; }
+}
+
+@keyframes twinkleFast {
+  from { opacity: 0.15; }
+  to   { opacity: 0.75; }
+}
