@@ -110,11 +110,11 @@ header p {
 .about-section p {
     color: white;
     font-size: 1.05rem;
-    max-width: 34rem;
+    max-width: 38rem;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 /* PROJECT GRID */
