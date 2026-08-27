@@ -111,6 +111,8 @@ header p {
     max-width: 38rem;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
+    line-height: 1.7;
 }
 
 /* PROJECT GRID */
