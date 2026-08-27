@@ -24,6 +24,7 @@ body {
         310px 310px,
         390px 390px,
         470px 470px;
+    animation: starDrift 80s linear infinite;
 }
 
 /* HEADER */
@@ -284,5 +285,24 @@ footer {
     100% {
         opacity: 0;
         transform: scale(.5);
+    }
+}
+@keyframes starDrift {
+    0% {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0;
+    }
+
+    100% {
+        background-position:
+            120px 60px,
+            -100px 90px,
+            80px -120px,
+            -130px -70px,
+            100px 110px;
     }
 }
