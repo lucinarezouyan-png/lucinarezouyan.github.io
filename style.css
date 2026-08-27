@@ -40,10 +40,19 @@ body {
 
 header { margin: 2rem 0 3rem; 
         text-align: center;}
-header h1 { margin: 0;
-font-family: "Lobster", cursive;
-  font-weight: 400; }
-header p { color: #666; margin: 0.25rem 0 0; }
+header h1 {
+    margin: 0;
+    font-family: "Lobster", cursive;
+    font-weight: 400;
+    font-size: 3rem;
+    color: white;
+}
+
+header p {
+    color: white;
+    margin: 0.25rem 0 0;
+    font-size: 1.2rem;
+}
   
 main {
     max-width: 42rem;
@@ -134,7 +143,12 @@ figure { margin: 1.5rem 0; }
 img, video { max-width: 100%; display: block; }
 figcaption { color: #333; font-size: 0.85rem; margin-top: 0.4rem; }
 
-footer { margin: 4rem 0 2rem; color: #f2f2f2; font-size: 0.9rem; }
+footer {
+    margin: 6rem 0 2rem;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+}
 
 
 audio {
@@ -161,7 +175,7 @@ figure:has(audio) {
 }
 
 .twinkle-star.active {
-  animation: singleTwinkle 1.4s ease-in-out;
+  animation: singleTwinkle 1.1s ease-in-out;
 }
 
 @keyframes singleTwinkle {
@@ -172,8 +186,11 @@ figure:has(audio) {
 
   45% {
     opacity: 1;
-    transform: scale(2);
-  }
+    transform: scale(3);
+    box-shadow:
+        0 0 6px white,
+        0 0 14px rgba(255,255,255,.9);
+}
 
   100% {
     opacity: 0;
