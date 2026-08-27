@@ -8,18 +8,20 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
   <h1>Lucin Arezouyan</h1>
-  <p>COMMUNICATION • DIGITAL MEDIA </p>
+  <p>COMMUNICATION • DIGITAL MEDIA</p>
 </header>
+
 <nav class="side-nav">
-    <button onclick="showSection('about')">ABOUT ME</button>
-    <button onclick="showSection('projects')">PROJECTS</button>
+  <button onclick="showSection('about')">ABOUT ME</button>
+  <button onclick="showSection('projects')">PROJECTS</button>
 </nav>
 
-<section id="about" class="about-section" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:min(42rem,calc(100vw - 3rem)); text-align:center; z-index:10;">
+<section id="about" class="about-section">
   <h2>About Me</h2>
 
   <p>
@@ -33,13 +35,18 @@
   <section class="project" onclick="openProject(this)">
     <h2>2046 Alternate Future</h2>
     <p class="meta">AI Generation | 2026 | independent | Lucin Arezouyan</p>
+
     <figure>
-      <img src="2046.png" alt="futuristic multi-level interior environment" onclick="openImage(event, this)">
-      <figcaption> A speculative future environment .</figcaption>
+      <img src="2046.png"
+           alt="futuristic multi-level interior environment"
+           onclick="openImage(event, this)">
+
+      <figcaption>A speculative future environment.</figcaption>
     </figure>
+
     <p>
-      2046 an Alternative Future explores a design inspired by dwindling resources and the repurposing of technology. AI 
-      generation was used to combine multiple environmental and cultural images, exploring different textures and 
+      2046 an Alternative Future explores a design inspired by dwindling resources and the repurposing of technology. AI
+      generation was used to combine multiple environmental and cultural images, exploring different textures and
       structures to create a new environment.
     </p>
   </section>
@@ -47,34 +54,46 @@
   <section class="project" onclick="openProject(this)">
     <h2>Who Am I?</h2>
     <p class="meta">AI Generation | 2024 | independent | Lucin Arezouyan</p>
+
     <figure>
-      <img src="Identity.png" alt="movie poster exploring identity and different perceptions of the main character" onclick="openImage(event, this)">
-      <figcaption> A potential movie poster idea exploring images, memories and personal experiences 
-        affect on perception.</figcaption>
+      <img src="Identity.png"
+           alt="movie poster exploring identity and different perceptions of the main character"
+           onclick="openImage(event, this)">
+
+      <figcaption>
+        A potential movie poster idea exploring how images, memories and personal experiences affect perception.
+      </figcaption>
     </figure>
+
     <p>
-     Who Am I? follows the main character, Maya, through a world where everyone sees her differently based on their 
-     relationship with her and their perception of one another. As these different perceptions begin to affect her, Maya 
-     spirals down a path that leads her to question who she really is.
+      Who Am I? follows the main character, Maya, through a world where everyone sees her differently based on their
+      relationship with her and their perception of one another. As these different perceptions begin to affect her, Maya
+      spirals down a path that leads her to question who she really is.
     </p>
   </section>
 
-<section class="project" onclick="openMusic(event, this.querySelector('audio'))">    <h2>Elevator/Hold Music</h2>
+  <section class="project" onclick="openMusic(event, this.querySelector('audio'))">
+    <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
-   <figure>
-    <audio src="music.wav" controls onclick="event.stopPropagation(); openMusic(event, this)"></audio>
-    <figcaption>A musical piece inspired by hold/elevator music.</figcaption>
-</figure>
+
+    <figure>
+      <audio src="music.wav"
+             controls
+             onclick="event.stopPropagation(); openMusic(event, this)">
+      </audio>
+
+      <figcaption>A musical piece inspired by hold/elevator music.</figcaption>
+    </figure>
+
     <p>
-      A repetitive beat made to emulate the calm feeling of elevator and hold music. Devoid of lyrics, the piece focuses 
-      on creating a simple and relaxing beat that listeners can enjoy. 
+      A repetitive beat made to emulate the calm feeling of elevator and hold music. Devoid of lyrics, the piece focuses
+      on creating a simple and relaxing beat that listeners can enjoy.
     </p>
   </section>
 
 </main>
 
 <footer>
-
   <p>Lucin Arezouyan ~ lucinarezouyan@ucsb.edu ~ 2026</p>
 </footer>
 
@@ -82,6 +101,7 @@
 function openProject(project) {
     project.classList.toggle("expanded");
 }
+
 function openMusic(event, audio) {
     event.stopPropagation();
 
@@ -91,6 +111,7 @@ function openMusic(event, audio) {
     const description = project.querySelector("p:not(.meta)");
 
     const overlay = document.createElement("div");
+
     overlay.style.position = "fixed";
     overlay.style.top = "0";
     overlay.style.left = "0";
@@ -108,9 +129,11 @@ function openMusic(event, audio) {
     const bigAudio = audio.cloneNode(true);
     bigAudio.style.width = "80%";
     bigAudio.style.maxWidth = "800px";
+
     bigAudio.onclick = function(event) {
         event.stopPropagation();
     };
+
     overlay.appendChild(bigAudio);
 
     if (caption) {
@@ -137,16 +160,17 @@ function openMusic(event, audio) {
 
     document.body.appendChild(overlay);
 }
+
 function openImage(event, image) {
     event.stopPropagation();
 
     const figure = image.closest("figure");
     const caption = figure.querySelector("figcaption");
-  
-  const project = image.closest(".project");
-const description = project.querySelector("p:not(.meta)");
+    const project = image.closest(".project");
+    const description = project.querySelector("p:not(.meta)");
 
     const overlay = document.createElement("div");
+
     overlay.style.position = "fixed";
     overlay.style.top = "0";
     overlay.style.left = "0";
@@ -163,6 +187,7 @@ const description = project.querySelector("p:not(.meta)");
     overlay.style.cursor = "pointer";
 
     const bigImage = image.cloneNode();
+
     bigImage.removeAttribute("onclick");
     bigImage.style.width = "auto";
     bigImage.style.height = "auto";
@@ -179,67 +204,60 @@ const description = project.querySelector("p:not(.meta)");
         text.style.marginTop = "15px";
         overlay.appendChild(text);
     }
-if (description) {
-    const fullDescription = document.createElement("p");
-    fullDescription.textContent = description.textContent;
-    fullDescription.style.color = "white";
-    fullDescription.style.maxWidth = "800px";
-    fullDescription.style.textAlign = "center";
-    fullDescription.style.marginTop = "10px";
-    overlay.appendChild(fullDescription);
-}
-    overlay.onclick = function () {
+
+    if (description) {
+        const fullDescription = document.createElement("p");
+        fullDescription.textContent = description.textContent;
+        fullDescription.style.color = "white";
+        fullDescription.style.maxWidth = "800px";
+        fullDescription.style.textAlign = "center";
+        fullDescription.style.marginTop = "10px";
+        overlay.appendChild(fullDescription);
+    }
+
+    overlay.onclick = function() {
         overlay.remove();
     };
 
     document.body.appendChild(overlay);
 }
-</script>
-  <script>
+
 function createTwinkleStars() {
-  const numberOfStars = 25;
+    const numberOfStars = 25;
 
-  for (let i = 0; i < numberOfStars; i++) {
-    const star = document.createElement("div");
-    star.className = "twinkle-star";
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement("div");
+        star.className = "twinkle-star";
 
-    star.style.left = Math.random() * 100 + "vw";
-    star.style.top = Math.random() * 100 + "vh";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * 100 + "vh";
 
-    document.body.appendChild(star);
-  }
+        document.body.appendChild(star);
+    }
 }
 
 function randomTwinkle() {
-  const stars = document.querySelectorAll(".twinkle-star");
+    const stars = document.querySelectorAll(".twinkle-star");
 
-  // Randomly choose whether 1 or 2 stars twinkle
-  const amount = Math.random() < 0.65 ? 1 : 2;
+    const amount = Math.random() < 0.65 ? 1 : 2;
 
-  for (let i = 0; i < amount; i++) {
-    const star = stars[Math.floor(Math.random() * stars.length)];
+    for (let i = 0; i < amount; i++) {
+        const star = stars[Math.floor(Math.random() * stars.length)];
 
-    star.classList.remove("active");
+        star.classList.remove("active");
+        void star.offsetWidth;
+        star.classList.add("active");
 
-    // Restart the animation
-    void star.offsetWidth;
+        setTimeout(() => {
+            star.classList.remove("active");
+        }, 1400);
+    }
 
-    star.classList.add("active");
-
-    setTimeout(() => {
-      star.classList.remove("active");
-    }, 1400);
-  }
-
-  // Wait a random amount of time before the next twinkle
-  const nextTwinkle = 700 + Math.random() * 2200;
-  setTimeout(randomTwinkle, nextTwinkle);
+    const nextTwinkle = 700 + Math.random() * 2200;
+    setTimeout(randomTwinkle, nextTwinkle);
 }
 
-createTwinkleStars();
-
-setTimeout(randomTwinkle, 800);
-    function showSection(section) {
+function showSection(section) {
     const about = document.getElementById("about");
     const projects = document.getElementById("projects");
 
@@ -252,8 +270,10 @@ setTimeout(randomTwinkle, 800);
     }
 }
 
+createTwinkleStars();
+setTimeout(randomTwinkle, 800);
 showSection("about");
 </script>
-  
+
 </body>
 </html>
