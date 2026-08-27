@@ -179,6 +179,7 @@ figure:has(audio) {
     opacity: 0;
     transform: scale(.5);
   }
+  }
 /* Side navigation buttons */
 .side-nav {
     position: fixed !important;
