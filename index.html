@@ -344,8 +344,8 @@ function updateSlideshow() {
 
     /* Who Am I? - slide 2: remove editor UI at top and bottom */
     if (currentProject === "whoami" && currentSlide === 1) {
-        image.style.clipPath = "inset(7% 0 14% 0)";
-    }
+    image.style.clipPath = "inset(7% 18% 14% 18%)";
+}
 
     document.getElementById("slideshow-counter").textContent =
         `${currentSlide + 1} / ${project.images.length}`;
