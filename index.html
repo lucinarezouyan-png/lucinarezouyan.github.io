@@ -329,18 +329,20 @@ function updateSlideshow() {
     /* Reset crop whenever the slide changes */
     image.style.clipPath = "none";
 
-    /* 2046 - slide 4: remove unnecessary bottom area */
-    if (currentProject === "2046" && currentSlide === 3) {
-        image.style.clipPath = "inset(0 0 3% 0)";
-    }
-      /* 2046 - slide 5: remove extra bottom workspace */
-  if (currentProject === "2046" && currentSlide === 4) {
+   const currentImage = project.images[currentSlide];
+
+/* 2046 - organic material process */
+if (currentImage.includes("2046-process-organic-material-experiments.png")) {
+    image.style.clipPath = "inset(0 0 3% 0)";
+}
+
+/* 2046 - object/form development */
+if (currentImage.includes("2046-process-object-form-development.png")) {
     image.style.clipPath = "inset(0 0 8% 0)";
+}
 
-    }
-
-    /* Who Am I? - slide 2: remove editor UI at top and bottom */
-    if (currentProject === "whoami" && currentSlide === 1) {
+/* Who Am I? - starting portrait */
+if (currentImage.includes("whoami-starting-portrait.png")) {
     image.style.clipPath = "inset(8% 24% 18% 19%)";
 }
 
