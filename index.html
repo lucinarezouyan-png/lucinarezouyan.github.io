@@ -38,7 +38,7 @@
     <figure>
       <img src="2046.png"
            alt="futuristic multi-level interior environment"
-           onclick="openImage(event, this)">
+           onclick="event.stopPropagation(); openSlideshow('2046')">
 
       <figcaption>A speculative future environment.</figcaption>
     </figure>
@@ -57,7 +57,7 @@
     <figure>
       <img src="Identity.png"
            alt="movie poster exploring identity and different perceptions of the main character"
-           onclick="openImage(event, this)">
+           onclick="event.stopPropagation(); openSlideshow('whoami')">
 
       <figcaption>
         A potential movie poster idea exploring how images, memories and personal experiences affect perception.
