@@ -336,10 +336,15 @@ function updateSlideshow() {
     if (currentProject === "2046" && currentSlide === 3) {
         image.style.clipPath = "inset(0 0 3% 0)";
     }
+      /* 2046 - slide 5: remove extra bottom workspace */
+  if (currentProject === "2046" && currentSlide === 4) {
+    image.style.clipPath = "inset(0 0 8% 0)";
+
+    }
 
     /* Who Am I? - slide 2: remove editor UI at top and bottom */
     if (currentProject === "whoami" && currentSlide === 1) {
-        image.style.clipPath = "inset(6% 0 8% 0)";
+        image.style.clipPath = "inset(7% 0 14% 0)";
     }
 
     document.getElementById("slideshow-counter").textContent =
