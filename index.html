@@ -322,12 +322,25 @@ function openSlideshow(projectName) {
 
 function updateSlideshow() {
     const project = projectSlides[currentProject];
+    const image = document.getElementById("slideshow-image");
 
     document.getElementById("slideshow-title").textContent =
         project.title;
 
-    document.getElementById("slideshow-image").src =
-        project.images[currentSlide];
+    image.src = project.images[currentSlide];
+
+    /* Reset crop whenever the slide changes */
+    image.style.clipPath = "none";
+
+    /* 2046 - slide 4: remove unnecessary bottom area */
+    if (currentProject === "2046" && currentSlide === 3) {
+        image.style.clipPath = "inset(0 0 3% 0)";
+    }
+
+    /* Who Am I? - slide 2: remove editor UI at top and bottom */
+    if (currentProject === "whoami" && currentSlide === 1) {
+        image.style.clipPath = "inset(6% 0 8% 0)";
+    }
 
     document.getElementById("slideshow-counter").textContent =
         `${currentSlide + 1} / ${project.images.length}`;
