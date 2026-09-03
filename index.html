@@ -272,6 +272,100 @@ function showSection(section) {
 createTwinkleStars();
 setTimeout(randomTwinkle, 800);
 showSection("about");
+
+const projectSlides = {
+    "2046": {
+        title: "2046 Alternate Future",
+        images: [
+            "2046.png",
+            "2046-alternative-universe-assets/2046-supercraft-full-map.png",
+            "2046-alternative-universe-assets/2046-process-natural-texture-branches.png",
+            "2046-alternative-universe-assets/2046-process-organic-material-experiments.png",
+            "2046-alternative-universe-assets/2046-process-object-form-development.png",
+            "2046-alternative-universe-assets/2046-process-architecture-form-development.png",
+            "2046-alternative-universe-assets/2046-process-carved-mountain-chat.png",
+            "2046-alternative-universe-assets/2046-process-modernization-chat.png",
+            "2046-alternative-universe-assets/2046-process-late-stage-supercraft-map.png",
+            "2046-alternative-universe-assets/2046-process-final-branch-overview.png"
+        ]
+    },
+
+    "whoami": {
+        title: "Who Am I?",
+        images: [
+            "Identity.png",
+            "who-i-am-assets/whoami-starting-portrait.png",
+            "who-i-am-assets/whoami-broken-mirror-experiment.png",
+            "who-i-am-assets/whoami-life-stages-experiment.png",
+            "who-i-am-assets/whoami-mirror-hallway-clean.png",
+            "who-i-am-assets/whoami-mirror-hallway-notes.png",
+            "who-i-am-assets/whoami-perception-collage-draft.png",
+            "who-i-am-assets/whoami-perception-collage-final.png"
+        ]
+    }
+};
+
+let currentProject = "";
+let currentSlide = 0;
+
+function openSlideshow(projectName) {
+    currentProject = projectName;
+    currentSlide = 0;
+
+    document
+        .getElementById("project-slideshow")
+        .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+    updateSlideshow();
+}
+
+function updateSlideshow() {
+    const project = projectSlides[currentProject];
+
+    document.getElementById("slideshow-title").textContent =
+        project.title;
+
+    document.getElementById("slideshow-image").src =
+        project.images[currentSlide];
+
+    document.getElementById("slideshow-counter").textContent =
+        `${currentSlide + 1} / ${project.images.length}`;
+}
+
+function nextSlide() {
+    const project = projectSlides[currentProject];
+
+    currentSlide++;
+
+    if (currentSlide >= project.images.length) {
+        currentSlide = 0;
+    }
+
+    updateSlideshow();
+}
+
+function previousSlide() {
+    const project = projectSlides[currentProject];
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = project.images.length - 1;
+    }
+
+    updateSlideshow();
+}
+
+function closeSlideshow() {
+    document
+        .getElementById("project-slideshow")
+        .classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+  
 </script>
 
 <!-- PROJECT SLIDESHOW -->
