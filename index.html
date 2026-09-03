@@ -274,5 +274,34 @@ setTimeout(randomTwinkle, 800);
 showSection("about");
 </script>
 
+<!-- PROJECT SLIDESHOW -->
+<div id="project-slideshow" class="project-slideshow">
+
+  <button class="slideshow-close" onclick="closeSlideshow()">×</button>
+
+  <button class="slideshow-arrow slideshow-prev" onclick="previousSlide()">
+    ‹
+  </button>
+
+  <div class="slideshow-content">
+
+    <h2 id="slideshow-title"></h2>
+
+    <img
+      id="slideshow-image"
+      src=""
+      alt="Project image"
+    >
+
+    <div id="slideshow-counter"></div>
+
+  </div>
+
+  <button class="slideshow-arrow slideshow-next" onclick="nextSlide()">
+    ›
+  </button>
+
+</div>
+  
 </body>
 </html>
