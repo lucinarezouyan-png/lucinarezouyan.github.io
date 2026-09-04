@@ -638,3 +638,7 @@ footer {
         text-align: left;
     }
 }
+
+.gallery-main-description {
+    display: none;
+}
