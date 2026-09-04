@@ -485,8 +485,8 @@ footer {
 
 .gallery-hero {
     position: absolute;
-    width: 48%;
-    max-width: 680px;
+    width: 40%;
+    max-width: 560px;
 
     left: 50%;
     top: 50%;
@@ -497,6 +497,10 @@ footer {
 }
 
 .gallery-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.25s ease;
 }
