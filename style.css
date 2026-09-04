@@ -496,6 +496,15 @@ footer {
     z-index: 2;
 }
 
+.gallery-hero img {
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.gallery-hero img:hover {
+    transform: scale(1.015);
+}
+
 /* PROCESS IMAGES SURROUNDING IT */
 
 /* PROCESS THUMBNAILS */
