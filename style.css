@@ -559,3 +559,29 @@ footer {
 .project-gallery .process-card figcaption {
     display: none !important;
 }
+
+.gallery-project-link {
+    display: none;
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 4;
+
+    padding: 9px 14px;
+
+    background: rgba(0, 0, 0, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+.gallery-project-link:hover {
+    background: rgba(0, 0, 0, 0.95);
+    border-color: white;
+}
