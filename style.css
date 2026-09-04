@@ -552,22 +552,3 @@ footer {
 .gallery-main-description {
     display: none;
 }
-
-/* =========================
-   PROCESS IMAGE CROPS
-   ========================= */
-
-/* 2046 - organic material image */
-.crop-2046-organic {
-    clip-path: inset(0 0 3% 0);
-}
-
-/* 2046 - object/form development */
-.crop-2046-object {
-    clip-path: inset(0 0 8% 0);
-}
-
-/* Who Am I? - starting portrait */
-.crop-whoami-portrait {
-    clip-path: inset(8% 24% 18% 19%);
-}
