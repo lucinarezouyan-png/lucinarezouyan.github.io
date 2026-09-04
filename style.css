@@ -463,106 +463,144 @@ footer {
 }
 
 .gallery-inner {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 70px 50px 100px;
+    padding: 70px 40px 100px;
 }
 
 .gallery-title {
     color: white;
     text-align: center;
     font-size: 2.4rem;
-    margin: 0 0 35px;
+    margin: 0 0 40px;
 }
+
+/* Main gallery layout */
 
 .gallery-canvas {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 28px;
+
+    grid-template-columns:
+        minmax(220px, 1fr)
+        minmax(500px, 2fr)
+        minmax(220px, 1fr);
+
+    grid-template-areas:
+        "p1 hero p2"
+        "p3 hero p4"
+        "p5 hero p6";
+
+    column-gap: 40px;
+    row-gap: 35px;
+
     align-items: start;
 }
 
-/* Main finished piece */
+/* =========================
+   MAIN FINISHED PIECE
+   ========================= */
 
 .gallery-hero {
-    grid-column: 4 / span 6;
-    grid-row: 1 / span 3;
+    grid-area: hero;
     text-align: center;
-    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .gallery-hero img {
     width: 100%;
-    max-height: 70vh;
+    height: auto;
+    max-height: 68vh;
     object-fit: contain;
     cursor: pointer;
+    display: block;
 }
 
 .gallery-main-description {
     color: #ddd;
     font-size: 1rem;
     line-height: 1.65;
-    max-width: 800px;
+    max-width: 700px;
     margin: 22px auto 0;
     text-align: left;
 }
 
-/* Smaller process pieces */
+/* =========================
+   PROCESS THUMBNAILS
+   ========================= */
 
 .process-card {
+    width: 100%;
+    max-width: 320px;
     margin: 0;
     cursor: pointer;
-    transition: transform 0.25s ease;
 }
 
-.process-card:hover {
-    transform: scale(1.04);
+.process-card:hover img {
+    transform: scale(1.03);
 }
 
 .process-card img {
     width: 100%;
-    height: auto;
-    display: block;
+
+    /* makes every preview a clean thumbnail */
+    aspect-ratio: 4 / 3;
+
     object-fit: cover;
+    object-position: center;
+
+    display: block;
+    background: #050505;
+
+    transition: transform 0.25s ease;
 }
 
 .process-card figcaption {
-    color: #bbb;
+    color: #aaa;
     font-size: 0.8rem;
     line-height: 1.4;
-    margin-top: 8px;
+    margin-top: 9px;
 }
 
-/* Scatter six process images around hero */
+/* =========================
+   SCATTERED POSITIONS
+   ========================= */
 
 .process-pos-1 {
-    grid-column: 1 / span 3;
-    grid-row: 1;
+    grid-area: p1;
+    justify-self: end;
+    margin-top: 20px;
 }
 
 .process-pos-2 {
-    grid-column: 10 / span 3;
-    grid-row: 1;
+    grid-area: p2;
+    justify-self: start;
+    margin-top: 60px;
 }
 
 .process-pos-3 {
-    grid-column: 1 / span 3;
-    grid-row: 2;
+    grid-area: p3;
+    justify-self: end;
+    margin-top: 10px;
 }
 
 .process-pos-4 {
-    grid-column: 10 / span 3;
-    grid-row: 2;
+    grid-area: p4;
+    justify-self: start;
+    margin-top: 35px;
 }
 
 .process-pos-5 {
-    grid-column: 2 / span 3;
-    grid-row: 3;
+    grid-area: p5;
+    justify-self: end;
+    margin-top: 5px;
 }
 
 .process-pos-6 {
-    grid-column: 9 / span 3;
-    grid-row: 3;
+    grid-area: p6;
+    justify-self: start;
+    margin-top: 45px;
 }
 
 /* Individual image zoom */
