@@ -417,19 +417,6 @@ function openProjectGallery(projectName) {
         image.src = item.image;
         image.alt = "Project process image";
 
-        /* Image-specific crops */
-if (item.image.includes("2046-process-organic-material-experiments.png")) {
-    image.classList.add("crop-2046-organic");
-}
-
-if (item.image.includes("2046-process-object-form-development.png")) {
-    image.classList.add("crop-2046-object");
-}
-
-if (item.image.includes("whoami-starting-portrait.png")) {
-    image.classList.add("crop-whoami-portrait");
-}
-
         image.onclick = function() {
             openProcessZoom(item.image, item.description);
         };
