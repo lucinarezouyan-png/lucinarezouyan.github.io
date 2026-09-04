@@ -36,9 +36,9 @@
     <p class="meta">AI Generation | 2026 | independent | Lucin Arezouyan</p>
 
     <figure>
-      <img src="2046.png"
-           alt="futuristic multi-level interior environment"
-           onclick="event.stopPropagation(); openSlideshow('2046')">
+     <img src="2046.png"
+       alt="futuristic multi-level interior environment"
+       onclick="event.stopPropagation(); openProjectGallery('2046')">
 
       <figcaption>A speculative future environment.</figcaption>
     </figure>
@@ -55,9 +55,9 @@
     <p class="meta">AI Generation | 2024 | independent | Lucin Arezouyan</p>
 
     <figure>
-      <img src="Identity.png"
-           alt="movie poster exploring identity and different perceptions of the main character"
-           onclick="event.stopPropagation(); openSlideshow('whoami')">
+     <img src="Identity.png"
+       alt="movie poster exploring identity and different perceptions of the main character"
+       onclick="event.stopPropagation(); openProjectGallery('whoami')">
 
       <figcaption>
         A potential movie poster idea exploring how images, memories and personal experiences affect perception.
@@ -413,6 +413,200 @@ function closeSlideshow() {
   </button>
 
 </div>
+
+<!-- PROJECT PROCESS GALLERY -->
+<div id="project-gallery" class="project-gallery">
+
+    <button class="gallery-close" onclick="closeProjectGallery()">×</button>
+
+    <div class="gallery-inner">
+
+        <h2 id="gallery-title" class="gallery-title"></h2>
+
+        <div id="gallery-canvas" class="gallery-canvas">
+
+            <!-- Main / final image -->
+            <div class="gallery-hero">
+                <img
+                    id="gallery-hero-image"
+                    src=""
+                    alt="Final project image"
+                    onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
+                >
+
+                <p id="gallery-main-description" class="gallery-main-description"></p>
+            </div>
+
+            <!-- Process images will be inserted here with JavaScript -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PROCESS IMAGE ZOOM -->
+<div id="process-zoom" class="process-zoom">
+
+    <button class="process-zoom-close" onclick="closeProcessZoom()">×</button>
+
+    <img id="process-zoom-image" src="" alt="Expanded process image">
+
+    <p id="process-zoom-description"></p>
+
+</div>
+  <script>
+const projectGalleryData = {
+    "2046": {
+        title: "2046 Alternate Future",
+        hero: "2046.png",
+
+        mainDescription:
+            "2046 an Alternative Future explores a design inspired by dwindling resources and the repurposing of technology. AI generation was used to combine multiple environmental and cultural images, exploring different textures and structures to create a new environment.",
+
+        process: [
+            {
+                image: "2046-alternative-universe-assets/2046-supercraft-full-map.png",
+                description: ""
+            },
+            {
+                image: "2046-alternative-universe-assets/2046-process-organic-material-experiments.png",
+                description: ""
+            },
+            {
+                image: "2046-alternative-universe-assets/2046-process-object-form-development.png",
+                description: ""
+            },
+            {
+                image: "2046-alternative-universe-assets/2046-process-architecture-form-development.png",
+                description: ""
+            },
+            {
+                image: "2046-alternative-universe-assets/2046-process-carved-mountain-chat.png",
+                description: ""
+            },
+            {
+                image: "2046-alternative-universe-assets/2046-process-modernization-chat.png",
+                description: ""
+            }
+        ]
+    },
+
+    "whoami": {
+        title: "Who Am I?",
+        hero: "Identity.png",
+
+        mainDescription:
+            "Who Am I? follows the main character, Maya, through a world where everyone sees her differently based on their relationship with her and their perception of one another. As these different perceptions begin to affect her, Maya spirals down a path that leads her to question who she really is.",
+
+        process: [
+            {
+                image: "who-i-am-assets/whoami-starting-portrait.png",
+                description: ""
+            },
+            {
+                image: "who-i-am-assets/whoami-broken-mirror-experiment.png",
+                description: ""
+            },
+            {
+                image: "who-i-am-assets/whoami-life-stages-experiment.png",
+                description: ""
+            },
+            {
+                image: "who-i-am-assets/whoami-mirror-hallway-notes.png",
+                description: ""
+            },
+            {
+                image: "who-i-am-assets/whoami-perception-collage-draft.png",
+                description: ""
+            },
+            {
+                image: "who-i-am-assets/whoami-perception-collage-final.png",
+                description: ""
+            }
+        ]
+    }
+};
+
+
+function openProjectGallery(projectName) {
+    const project = projectGalleryData[projectName];
+
+    if (!project) return;
+
+    document.getElementById("gallery-title").textContent = project.title;
+    document.getElementById("gallery-hero-image").src = project.hero;
+    document.getElementById("gallery-main-description").textContent =
+        project.mainDescription;
+
+    const canvas = document.getElementById("gallery-canvas");
+
+    /* Remove old process cards if switching projects */
+    canvas.querySelectorAll(".process-card").forEach(card => card.remove());
+
+    project.process.forEach((item, index) => {
+
+        const figure = document.createElement("figure");
+
+        figure.className =
+            "process-card process-pos-" + (index + 1);
+
+        const image = document.createElement("img");
+        image.src = item.image;
+        image.alt = "Project process image";
+
+        image.onclick = function() {
+            openProcessZoom(item.image, item.description);
+        };
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = item.description;
+
+        figure.appendChild(image);
+
+        if (item.description) {
+            figure.appendChild(caption);
+        }
+
+        canvas.appendChild(figure);
+    });
+
+    document
+        .getElementById("project-gallery")
+        .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeProjectGallery() {
+    document
+        .getElementById("project-gallery")
+        .classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+function openProcessZoom(imageSource, description) {
+    document.getElementById("process-zoom-image").src = imageSource;
+
+    document.getElementById("process-zoom-description").textContent =
+        description || "";
+
+    document
+        .getElementById("process-zoom")
+        .classList.add("active");
+}
+
+
+function closeProcessZoom() {
+    document
+        .getElementById("process-zoom")
+        .classList.remove("active");
+}
+</script>
   
 </body>
 </html>
