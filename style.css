@@ -555,3 +555,7 @@ footer {
 .gallery-main-description {
     display: none;
 }
+
+.project-gallery .process-card figcaption {
+    display: none !important;
+}
