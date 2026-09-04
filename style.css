@@ -442,6 +442,7 @@ footer {
 }
 
 .process-card figcaption {
+    display: none;
     color: #aaa;
     font-size: 0.8rem;
     line-height: 1.4;
