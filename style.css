@@ -465,7 +465,7 @@ footer {
 .gallery-inner {
     max-width: 1500px;
     margin: 0 auto;
-    padding: 70px 40px 100px;
+    padding: 20px 40px 30px;
 }
 
 .gallery-title {
@@ -476,7 +476,9 @@ footer {
 
 .gallery-canvas {
     position: relative;
-    min-height: 1050px;
+    height: calc(100vh - 50px);
+    min-height: 700px;
+    max-height: 850px;
     max-width: 1400px;
     margin: 0 auto;
 }
