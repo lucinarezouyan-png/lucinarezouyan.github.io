@@ -294,6 +294,13 @@ showSection("about");
                     alt="Final project image"
                     onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
                 >
+              <a
+                  id="gallery-project-link"
+                  class="gallery-project-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              ></a>
 
                 <p id="gallery-main-description" class="gallery-main-description"></p>
             </div>
@@ -322,6 +329,8 @@ const projectGalleryData = {
     "2046": {
         title: "2046 Alternate Future",
         hero: "2046.png",
+      projectLink: "https://supercraft.ai/physical/board?boardId=6a62ce4791d4f9d8a8191ede",
+      projectLinkText: "VIEW FULL SUPERCRAFT MAP ↗",
 
         mainDescription: `
 2046 Alternate Future is a speculative design project that explores what a future society could look like if people had to adapt to limited resources and reuse the environments and technology already around them. I wanted to create a world that felt futuristic without becoming completely disconnected from the present. The project is intended for viewers interested in future environments, architecture, technology, and how society might respond to changing resources.
@@ -404,6 +413,16 @@ function openProjectGallery(projectName) {
     document.getElementById("gallery-hero-image").src = project.hero;
     document.getElementById("gallery-main-description").textContent =
         project.mainDescription;
+
+  const projectLink = document.getElementById("gallery-project-link");
+
+if (project.projectLink) {
+    projectLink.href = project.projectLink;
+    projectLink.textContent = project.projectLinkText;
+    projectLink.style.display = "inline-block";
+} else {
+    projectLink.style.display = "none";
+}
 
     const canvas = document.getElementById("gallery-canvas");
 
