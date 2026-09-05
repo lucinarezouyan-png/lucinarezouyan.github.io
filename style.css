@@ -513,10 +513,12 @@ footer {
 
 #process-zoom-description {
     color: #ddd;
+    width: min(1000px, 90vw);
     max-width: 1000px;
     margin: 18px auto 0;
     line-height: 1.5;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .process-zoom-close {
@@ -532,19 +534,122 @@ footer {
 
 /* Mobile */
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
+
+    /* Navigation */
+    .side-nav {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+        margin: 0 0 2rem;
+        width: 100%;
+    }
+
+    .side-nav button {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    /* Main project page */
+    main {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .project {
+        width: 100%;
+    }
+
+    .project figure {
+        height: auto;
+    }
+
+    .project img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Process gallery */
     .gallery-inner {
-        padding: 70px 20px;
+        padding: 70px 20px 40px;
     }
 
     .gallery-canvas {
         display: block;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
-    .gallery-hero,
-    .process-card {
+    .gallery-hero {
+        position: static;
         width: 100%;
-        margin-bottom: 35px;
+        max-width: none;
+        transform: none;
+        text-align: center;
+        margin: 0 0 35px;
+    }
+
+    .gallery-hero img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+    }
+
+    .process-card {
+        position: static;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 35px;
+        transform: none;
+    }
+
+    .process-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    /* Cancel desktop thumbnail positions */
+    .process-pos-1,
+    .process-pos-2,
+    .process-pos-3,
+    .process-pos-4,
+    .process-pos-5,
+    .process-pos-6 {
+        position: static;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+    }
+
+    /* Enlarged process image */
+    .process-zoom {
+        padding: 70px 20px 30px;
+    }
+
+    .process-zoom img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        max-height: none;
+    }
+
+    #process-zoom-description,
+    #process-zoom-link {
+        width: 100%;
+        max-width: 100%;
     }
 
     .gallery-main-description {
