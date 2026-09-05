@@ -6,7 +6,7 @@
 
   <title>Lucin Arezouyan ~ portfolio</title>
 
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
 </head>
 
 <body>
@@ -461,6 +461,7 @@ if (project.audio) {
     heroImage.removeAttribute("src");
 
     heroAudio.src = project.audio;
+    heroAudio.load();
     heroAudio.style.display = "block";
 } else {
     heroAudio.pause();
