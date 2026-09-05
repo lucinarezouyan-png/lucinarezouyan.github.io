@@ -294,13 +294,6 @@ showSection("about");
                     alt="Final project image"
                     onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
                 >
-              <a
-                  id="gallery-project-link"
-                  class="gallery-project-link"
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              ></a>
 
                 <p id="gallery-main-description" class="gallery-main-description"></p>
             </div>
@@ -323,14 +316,21 @@ showSection("about");
 
     <p id="process-zoom-description"></p>
 
+    <a
+      id="process-zoom-link"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+  >
+    VIEW FULL SUPERCRAFT MAP ↗
+</a>
+
 </div>
   <script>
 const projectGalleryData = {
     "2046": {
         title: "2046 Alternate Future",
         hero: "2046.png",
-      projectLink: "https://supercraft.ai/physical/board?boardId=6a62ce4791d4f9d8a8191ede",
-      projectLinkText: "VIEW FULL SUPERCRAFT MAP ↗",
 
         mainDescription: `
 2046 Alternate Future is a speculative design project that explores what a future society could look like if people had to adapt to limited resources and reuse the environments and technology already around them. I wanted to create a world that felt futuristic without becoming completely disconnected from the present. The project is intended for viewers interested in future environments, architecture, technology, and how society might respond to changing resources.
@@ -341,6 +341,7 @@ I developed the project mainly through Supercraft and AI image generation. I beg
             {
                 image: "2046-alternative-universe-assets/2046-supercraft-full-map.png",
                 description: "Full Process Map — This map shows the full development of the project, including experiments, rejected ideas, and the different branches that eventually led to the final environment."
+                link: "https://supercraft.ai/physical/board?boardId=6a62ce4791d4f9d8a8191ede"
             },
             {
                 image: "2046-alternative-universe-assets/2046-process-organic-material-experiments.png",
@@ -414,16 +415,6 @@ function openProjectGallery(projectName) {
     document.getElementById("gallery-main-description").textContent =
         project.mainDescription;
 
-  const projectLink = document.getElementById("gallery-project-link");
-
-if (project.projectLink) {
-    projectLink.href = project.projectLink;
-    projectLink.textContent = project.projectLinkText;
-    projectLink.style.display = "inline-block";
-} else {
-    projectLink.style.display = "none";
-}
-
     const canvas = document.getElementById("gallery-canvas");
 
     /* Remove old process cards if switching projects */
@@ -441,7 +432,7 @@ if (project.projectLink) {
         image.alt = "Project process image";
 
         image.onclick = function() {
-            openProcessZoom(item.image, item.description);
+            openProcessZoom(item.image, item.description, item.link);
         };
 
         const caption = document.createElement("figcaption");
@@ -473,11 +464,19 @@ function closeProjectGallery() {
 }
 
 
-function openProcessZoom(imageSource, description) {
+function openProcessZoom(imageSource, description, link) {
     document.getElementById("process-zoom-image").src = imageSource;
 
     document.getElementById("process-zoom-description").textContent =
         description || "";
+  const zoomLink = document.getElementById("process-zoom-link");
+
+if (link) {
+    zoomLink.href = link;
+    zoomLink.style.display = "inline-block";
+} else {
+    zoomLink.style.display = "none";
+}
 
     document
         .getElementById("process-zoom")
