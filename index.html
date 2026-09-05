@@ -299,7 +299,7 @@ showSection("about");
 <div
     id="gallery-audio-wrap"
     style="display: none;"
-    onclick="showGalleryAudioDetails()"
+    onclick="openAudioZoom()"
 >
     <audio
         id="gallery-hero-audio"
@@ -307,8 +307,6 @@ showSection("about");
         controls
         preload="metadata"
     ></audio>
-
-    <p id="gallery-audio-description"></p>
 </div>
 
             <!-- Process images will be inserted here with JavaScript -->
@@ -326,6 +324,13 @@ showSection("about");
     <button class="process-zoom-close" onclick="closeProcessZoom()">×</button>
 
     <img id="process-zoom-image" src="" alt="Expanded process image">
+  <audio
+    id="process-zoom-audio"
+    src="music.wav"
+    controls
+    preload="metadata"
+    style="display: none;"
+></audio>
 
     <p id="process-zoom-description"></p>
 
@@ -465,21 +470,14 @@ function openProjectGallery(projectName) {
 const heroImage = document.getElementById("gallery-hero-image");
 const heroAudio = document.getElementById("gallery-hero-audio");
 const audioWrap = document.getElementById("gallery-audio-wrap");
-const audioDescription = document.getElementById("gallery-audio-description");
 
 if (project.audio) {
     heroImage.style.display = "none";
-
-    audioDescription.textContent = project.mainDescription;
-    audioWrap.classList.remove("details-open");
-    audioWrap.style.display = "flex";
-
+    audioWrap.style.display = "block";
 } else {
     heroAudio.pause();
     heroAudio.currentTime = 0;
-
     audioWrap.style.display = "none";
-    audioWrap.classList.remove("details-open");
 
     heroImage.src = project.hero;
     heroImage.style.display = "block";
@@ -539,6 +537,11 @@ function closeProjectGallery() {
 
 function openProcessZoom(imageSource, description, link) {
     document.getElementById("process-zoom-image").src = imageSource;
+    document.getElementById("process-zoom-image").style.display = "block";
+
+const zoomAudio = document.getElementById("process-zoom-audio");
+zoomAudio.pause();
+zoomAudio.style.display = "none";
 
     document.getElementById("process-zoom-description").textContent =
         description || "";
@@ -555,17 +558,37 @@ if (link) {
         .getElementById("process-zoom")
         .classList.add("active");
 }
+    function openAudioZoom() {
+    const zoomImage = document.getElementById("process-zoom-image");
+    const zoomAudio = document.getElementById("process-zoom-audio");
+    const zoomDescription = document.getElementById("process-zoom-description");
+    const zoomLink = document.getElementById("process-zoom-link");
+
+    zoomImage.style.display = "none";
+
+    zoomAudio.style.display = "block";
+
+    zoomDescription.textContent =
+        projectGalleryData.music.mainDescription;
+
+    zoomLink.style.display = "none";
+
+    document
+        .getElementById("process-zoom")
+        .classList.add("active");
+}
 
 
 function closeProcessZoom() {
+    const zoomAudio = document.getElementById("process-zoom-audio");
+
+    zoomAudio.pause();
+    zoomAudio.currentTime = 0;
+    zoomAudio.style.display = "none";
+
     document
         .getElementById("process-zoom")
         .classList.remove("active");
-}
-   function showGalleryAudioDetails() {
-    document
-        .getElementById("gallery-audio-wrap")
-        .classList.add("details-open");
 }
 </script>
   
