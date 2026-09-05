@@ -296,14 +296,20 @@ showSection("about");
     <p id="gallery-main-description" class="gallery-main-description"></p>
 </div>
 
-<audio
-    id="gallery-hero-audio"
-    src="music.wav"
-    controls
-    preload="metadata"
+<div
+    id="gallery-audio-wrap"
     style="display: none;"
-    onclick="toggleGalleryAudio(event)"
-></audio>
+    onclick="showGalleryAudioDetails()"
+>
+    <audio
+        id="gallery-hero-audio"
+        src="music.wav"
+        controls
+        preload="metadata"
+    ></audio>
+
+    <p id="gallery-audio-description"></p>
+</div>
 
             <!-- Process images will be inserted here with JavaScript -->
 
@@ -456,16 +462,24 @@ function openProjectGallery(projectName) {
     if (!project) return;
 
     document.getElementById("gallery-title").textContent = project.title;
-   const heroImage = document.getElementById("gallery-hero-image");
+const heroImage = document.getElementById("gallery-hero-image");
 const heroAudio = document.getElementById("gallery-hero-audio");
+const audioWrap = document.getElementById("gallery-audio-wrap");
+const audioDescription = document.getElementById("gallery-audio-description");
 
 if (project.audio) {
     heroImage.style.display = "none";
-    heroAudio.style.display = "block";
+
+    audioDescription.textContent = project.mainDescription;
+    audioWrap.classList.remove("details-open");
+    audioWrap.style.display = "flex";
+
 } else {
     heroAudio.pause();
     heroAudio.currentTime = 0;
-    heroAudio.style.display = "none";
+
+    audioWrap.style.display = "none";
+    audioWrap.classList.remove("details-open");
 
     heroImage.src = project.hero;
     heroImage.style.display = "block";
@@ -548,14 +562,10 @@ function closeProcessZoom() {
         .getElementById("process-zoom")
         .classList.remove("active");
 }
-    function toggleGalleryAudio(event) {
-    event.stopPropagation();
-
-    const audio = document.getElementById("gallery-hero-audio");
-
-    if (audio.paused) {
-        audio.play();
-    }
+   function showGalleryAudioDetails() {
+    document
+        .getElementById("gallery-audio-wrap")
+        .classList.add("details-open");
 }
 </script>
   
