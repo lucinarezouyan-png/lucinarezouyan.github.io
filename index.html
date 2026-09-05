@@ -292,11 +292,12 @@ showSection("about");
                     alt="Final project image"
                     onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
                 >
-              <audio
-                  id="gallery-hero-audio"
-                  controls
-                  style="display: none;"
-              ></audio>
+             <audio
+                    id="gallery-hero-audio"
+                    controls
+                    style="display: none;"
+                    onclick="event.stopPropagation();"
+            ></audio>
 
                 <p id="gallery-main-description" class="gallery-main-description"></p>
             </div>
