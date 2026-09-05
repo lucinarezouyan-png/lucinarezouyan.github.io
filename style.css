@@ -537,13 +537,16 @@ footer {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.96);
+    background: #000;
     z-index: 12000;
+
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-    padding: 60px 40px;
+
+    padding: 70px 40px 50px;
     box-sizing: border-box;
+
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -553,14 +556,16 @@ footer {
 }
 
 .process-zoom img {
+    width: min(900px, 80vw);
     max-width: 90vw;
-    max-height: 75vh;
+    height: auto;
+    max-height: 68vh;
     object-fit: contain;
 }
 #process-zoom-audio {
-    width: min(1000px, 90vw);
+    width: min(1000px, 80vw);
     max-width: 1000px;
-    margin: 120px auto 0;
+    margin: 0 auto;
 }
 
 #process-zoom-description {
@@ -694,16 +699,22 @@ footer {
 
     /* Enlarged process image */
     .process-zoom {
-        padding: 70px 20px 30px;
-    }
+    justify-content: flex-start;
+    padding: 70px 20px 30px;
+}
 
-    .process-zoom img {
-        max-width: 100%;
-        width: auto;
-        height: auto;
-        max-height: none;
-    }
+   .process-zoom img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+}
 
+    #process-zoom-audio {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
     #process-zoom-description,
     #process-zoom-link {
         width: 100%;
