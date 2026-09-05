@@ -416,13 +416,19 @@ footer {
 }
 
 #gallery-hero-audio {
-    position: relative;
-    z-index: 30;
-    pointer-events: auto;
-    width: 100%;
-    cursor: default;
-}
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
+    width: min(620px, 42vw);
+    z-index: 100;
+    pointer-events: auto;
+
+    outline: 1px solid rgba(255, 255, 255, 0.25);
+    outline-offset: 7px;
+    border-radius: 12px;
+}
 .process-card {
     z-index: 1;
 }
