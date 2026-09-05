@@ -285,23 +285,24 @@ showSection("about");
         <div id="gallery-canvas" class="gallery-canvas">
 
             <!-- Main / final image -->
-            <div class="gallery-hero">
-                <img
-                    id="gallery-hero-image"
-                    src=""
-                    alt="Final project image"
-                    onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
-                >
-             <audio
-                    id="gallery-hero-audio"
-                    src="music.wav"
-                    controls
-                    preload="metadata"
-                    style="display: none;"
-            ></audio>
+           <div class="gallery-hero">
+    <img
+        id="gallery-hero-image"
+        src=""
+        alt="Final project image"
+        onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
+    >
 
-                <p id="gallery-main-description" class="gallery-main-description"></p>
-            </div>
+    <p id="gallery-main-description" class="gallery-main-description"></p>
+</div>
+
+<audio
+    id="gallery-hero-audio"
+    src="music.wav"
+    controls
+    preload="metadata"
+    style="display: none;"
+></audio>
 
             <!-- Process images will be inserted here with JavaScript -->
 
