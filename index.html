@@ -69,14 +69,14 @@
     </p>
   </section>
 
-  <section class="project" onclick="openMusic(event, this.querySelector('audio'))">
-    <h2>Elevator/Hold Music</h2>
+<section class="project" onclick="openProjectGallery('music')">
+  <h2>Elevator/Hold Music</h2>
     <p class="meta">Audio | 2026 | independent | Lucin Arezouyan</p>
 
     <figure>
       <audio src="music.wav"
              controls
-             onclick="event.stopPropagation(); openMusic(event, this)">
+             onclick="event.stopPropagation();">
       </audio>
 
       <figcaption>A musical piece inspired by hold/elevator music.</figcaption>
@@ -292,6 +292,11 @@ showSection("about");
                     alt="Final project image"
                     onclick="openProcessZoom(this.src, document.getElementById('gallery-main-description').textContent)"
                 >
+              <audio
+                  id="gallery-hero-audio"
+                  controls
+                  style="display: none;"
+              ></audio>
 
                 <p id="gallery-main-description" class="gallery-main-description"></p>
             </div>
@@ -399,7 +404,45 @@ The project was originally planned as a full movie trailer showing Maya being se
                 description: "This was one of the poster directions I explored after moving away from the original movie-trailer idea. It helped me figure out how multiple versions of Maya could be shown together in one composition."
             }
         ]
-    }
+    },
+  
+"music": {
+    title: "Elevator / Hold Music",
+    audio: "music.wav",
+
+    mainDescription: `
+Elevator / Hold Music is an audio project inspired by the repetitive and unobtrusive music heard while waiting on the phone, sitting in a lobby, or riding in an elevator. I wanted the final piece to sit in the background rather than demand the listener's full attention, while still having enough variation to keep it from feeling completely flat.
+
+The project originally began as something closer to an R&B track, but the sound gradually shifted as I continued generating and revising it in Cursor. I worked through repeated prompting, listening to each result and adjusting the rhythm, mood, repetition, instrumentation, and overall feeling. As the piece began sounding more like hold or elevator music, I decided to develop that direction instead of forcing it back toward the original idea.
+    `,
+
+    process: [
+        {
+            image: "music-assets/usher-burn.png",
+            description: ""
+        },
+        {
+            image: "music-assets/beyonce-crazy-in-love.png",
+            description: ""
+        },
+        {
+            image: "music-assets/ne-yo-let-me-love-you.png",
+            description: ""
+        },
+        {
+            image: "music-assets/the-girl-from-ipanema.png",
+            description: ""
+        },
+        {
+            image: "music-assets/opus-no-1.png",
+            description: ""
+        },
+        {
+            image: "music-assets/antonio-carlos-jobim-wave.png",
+            description: ""
+        }
+    ]
+}
 };
 
 
@@ -409,9 +452,27 @@ function openProjectGallery(projectName) {
     if (!project) return;
 
     document.getElementById("gallery-title").textContent = project.title;
-    document.getElementById("gallery-hero-image").src = project.hero;
-    document.getElementById("gallery-main-description").textContent =
-        project.mainDescription;
+   const heroImage = document.getElementById("gallery-hero-image");
+const heroAudio = document.getElementById("gallery-hero-audio");
+
+if (project.audio) {
+    heroImage.style.display = "none";
+    heroImage.removeAttribute("src");
+
+    heroAudio.src = project.audio;
+    heroAudio.style.display = "block";
+} else {
+    heroAudio.pause();
+    heroAudio.removeAttribute("src");
+    heroAudio.load();
+    heroAudio.style.display = "none";
+
+    heroImage.src = project.hero;
+    heroImage.style.display = "block";
+}
+
+document.getElementById("gallery-main-description").textContent =
+    project.mainDescription;
 
     const canvas = document.getElementById("gallery-canvas");
 
