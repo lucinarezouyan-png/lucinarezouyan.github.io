@@ -559,21 +559,21 @@ footer {
 .project-gallery .process-card figcaption {
     display: none !important;
 }
-
 #process-zoom-link {
     display: none;
-    max-width: 1000px;
+    width: min(1000px, 90vw);
     margin: 10px auto 30px;
+    box-sizing: border-box;
 
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    padding-bottom: 2px;
+    text-align: right;
 }
 
 #process-zoom-link:hover {
-    border-bottom-color: white;
+    opacity: 0.7;
 }
