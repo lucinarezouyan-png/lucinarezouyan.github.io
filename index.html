@@ -294,9 +294,10 @@ showSection("about");
                 >
              <audio
                     id="gallery-hero-audio"
+                    src="music.wav"
                     controls
+                    preload="metadata"
                     style="display: none;"
-                    onclick="event.stopPropagation();"
             ></audio>
 
                 <p id="gallery-main-description" class="gallery-main-description"></p>
@@ -458,15 +459,10 @@ const heroAudio = document.getElementById("gallery-hero-audio");
 
 if (project.audio) {
     heroImage.style.display = "none";
-    heroImage.removeAttribute("src");
-
-    heroAudio.src = project.audio;
-    heroAudio.load();
     heroAudio.style.display = "block";
 } else {
     heroAudio.pause();
-    heroAudio.removeAttribute("src");
-    heroAudio.load();
+    heroAudio.currentTime = 0;
     heroAudio.style.display = "none";
 
     heroImage.src = project.hero;
