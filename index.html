@@ -302,6 +302,7 @@ showSection("about");
     controls
     preload="metadata"
     style="display: none;"
+    onclick="toggleGalleryAudio(event)"
 ></audio>
 
             <!-- Process images will be inserted here with JavaScript -->
@@ -546,6 +547,15 @@ function closeProcessZoom() {
     document
         .getElementById("process-zoom")
         .classList.remove("active");
+}
+    function toggleGalleryAudio(event) {
+    event.stopPropagation();
+
+    const audio = document.getElementById("gallery-hero-audio");
+
+    if (audio.paused) {
+        audio.play();
+    }
 }
 </script>
   
