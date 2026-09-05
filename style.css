@@ -399,7 +399,7 @@ footer {
 
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 2;
+    z-index: 20;
 }
 
 .gallery-hero img {
@@ -413,6 +413,18 @@ footer {
 
 .gallery-hero img:hover {
     transform: scale(1.015);
+}
+
+#gallery-hero-audio {
+    position: relative;
+    z-index: 30;
+    pointer-events: auto;
+    width: 100%;
+    cursor: default;
+}
+
+.process-card {
+    z-index: 1;
 }
 
 /* PROCESS IMAGES SURROUNDING IT */
