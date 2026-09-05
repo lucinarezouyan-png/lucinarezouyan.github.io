@@ -556,6 +556,11 @@ footer {
     max-height: 75vh;
     object-fit: contain;
 }
+#process-zoom-audio {
+    width: min(1000px, 90vw);
+    max-width: 1000px;
+    margin: 120px auto 0;
+}
 
 #process-zoom-description {
     color: #ddd;
